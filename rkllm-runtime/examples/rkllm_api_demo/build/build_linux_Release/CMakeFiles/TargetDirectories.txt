@@ -1,0 +1,4 @@
+/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles/llm_demo.dir
+/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles/multimodel_demo.dir
+/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles/edit_cache.dir
+/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles/rebuild_cache.dir

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/llm_demo.dir/src/test.cpp.o"
-  "CMakeFiles/llm_demo.dir/src/test.cpp.o.d"
+  "CMakeFiles/llm_demo.dir/src/readjson.cpp.o"
+  "CMakeFiles/llm_demo.dir/src/readjson.cpp.o.d"
   "llm_demo"
   "llm_demo.pdb"
 )

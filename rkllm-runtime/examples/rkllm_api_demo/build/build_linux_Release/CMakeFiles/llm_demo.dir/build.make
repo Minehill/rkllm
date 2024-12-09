@@ -69,28 +69,28 @@ include CMakeFiles/llm_demo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/llm_demo.dir/flags.make
 
-CMakeFiles/llm_demo.dir/src/test.cpp.o: CMakeFiles/llm_demo.dir/flags.make
-CMakeFiles/llm_demo.dir/src/test.cpp.o: ../../src/test.cpp
-CMakeFiles/llm_demo.dir/src/test.cpp.o: CMakeFiles/llm_demo.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/llm_demo.dir/src/test.cpp.o"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/llm_demo.dir/src/test.cpp.o -MF CMakeFiles/llm_demo.dir/src/test.cpp.o.d -o CMakeFiles/llm_demo.dir/src/test.cpp.o -c /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/test.cpp
+CMakeFiles/llm_demo.dir/src/readjson.cpp.o: CMakeFiles/llm_demo.dir/flags.make
+CMakeFiles/llm_demo.dir/src/readjson.cpp.o: ../../src/readjson.cpp
+CMakeFiles/llm_demo.dir/src/readjson.cpp.o: CMakeFiles/llm_demo.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/llm_demo.dir/src/readjson.cpp.o"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/llm_demo.dir/src/readjson.cpp.o -MF CMakeFiles/llm_demo.dir/src/readjson.cpp.o.d -o CMakeFiles/llm_demo.dir/src/readjson.cpp.o -c /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/readjson.cpp
 
-CMakeFiles/llm_demo.dir/src/test.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/llm_demo.dir/src/test.cpp.i"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/test.cpp > CMakeFiles/llm_demo.dir/src/test.cpp.i
+CMakeFiles/llm_demo.dir/src/readjson.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/llm_demo.dir/src/readjson.cpp.i"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/readjson.cpp > CMakeFiles/llm_demo.dir/src/readjson.cpp.i
 
-CMakeFiles/llm_demo.dir/src/test.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/llm_demo.dir/src/test.cpp.s"
-	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/test.cpp -o CMakeFiles/llm_demo.dir/src/test.cpp.s
+CMakeFiles/llm_demo.dir/src/readjson.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/llm_demo.dir/src/readjson.cpp.s"
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/readjson.cpp -o CMakeFiles/llm_demo.dir/src/readjson.cpp.s
 
 # Object files for target llm_demo
 llm_demo_OBJECTS = \
-"CMakeFiles/llm_demo.dir/src/test.cpp.o"
+"CMakeFiles/llm_demo.dir/src/readjson.cpp.o"
 
 # External object files for target llm_demo
 llm_demo_EXTERNAL_OBJECTS =
 
-llm_demo: CMakeFiles/llm_demo.dir/src/test.cpp.o
+llm_demo: CMakeFiles/llm_demo.dir/src/readjson.cpp.o
 llm_demo: CMakeFiles/llm_demo.dir/build.make
 llm_demo: /usr/lib/aarch64-linux-gnu/liblz4.so
 llm_demo: /usr/lib/aarch64-linux-gnu/libzstd.so

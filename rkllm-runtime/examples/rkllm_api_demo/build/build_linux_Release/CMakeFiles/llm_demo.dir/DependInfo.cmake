@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/test.cpp" "CMakeFiles/llm_demo.dir/src/test.cpp.o" "gcc" "CMakeFiles/llm_demo.dir/src/test.cpp.o.d"
+  "/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/readjson.cpp" "CMakeFiles/llm_demo.dir/src/readjson.cpp.o" "gcc" "CMakeFiles/llm_demo.dir/src/readjson.cpp.o.d"
   )
 
 # Targets to which this target links.

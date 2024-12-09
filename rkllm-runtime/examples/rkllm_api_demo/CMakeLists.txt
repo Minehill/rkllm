@@ -8,6 +8,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Arrow REQUIRED)
 find_package(Parquet REQUIRED)
 
+find_package(nlohmann_json 3.2.0 REQUIRED)
+
 # 手动指定 lz4、zstd、re2、protobuf 和 thrift 的位置
 find_path(LZ4_INCLUDE_DIR NAMES lz4.h)
 find_library(LZ4_LIBRARY NAMES lz4)
@@ -83,12 +85,12 @@ include_directories(${RE2_INCLUDE_DIR})
 include_directories(${Protobuf_INCLUDE_DIR})
 include_directories(${Thrift_INCLUDE_DIR})
 
-set(SOURCE_FILES_1 src/test.cpp)
+set(SOURCE_FILES_1 src/readjson.cpp)
 add_executable(llm_demo ${SOURCE_FILES_1})
 
 # 链接 Arrow、Parquet、lz4、zstd、re2、protobuf 和 Thrift 库
 target_link_libraries(llm_demo ${ARROW_LIBRARIES} ${PARQUET_LIBRARIES}
-        ${LZ4_LIBRARY} ${ZSTD_LIBRARY} ${RE2_LIBRARY} ${Protobuf_LIBRARY} ${Thrift_LIBRARY})
+        ${LZ4_LIBRARY} ${ZSTD_LIBRARY} ${RE2_LIBRARY} ${Protobuf_LIBRARY} ${Thrift_LIBRARY} nlohmann_json::nlohmann_json)
 
 set(SOURCE_FILES_2 src/multimodel_demo.cpp)
 add_executable(multimodel_demo ${SOURCE_FILES_2})

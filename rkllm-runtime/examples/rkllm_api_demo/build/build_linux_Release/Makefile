@@ -166,29 +166,29 @@ src/multimodel_demo.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/src/multimodel_demo.cpp.s
 .PHONY : src/multimodel_demo.cpp.s
 
-src/test.o: src/test.cpp.o
-.PHONY : src/test.o
+src/readjson.o: src/readjson.cpp.o
+.PHONY : src/readjson.o
 
 # target to build an object file
-src/test.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/src/test.cpp.o
-.PHONY : src/test.cpp.o
+src/readjson.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/src/readjson.cpp.o
+.PHONY : src/readjson.cpp.o
 
-src/test.i: src/test.cpp.i
-.PHONY : src/test.i
+src/readjson.i: src/readjson.cpp.i
+.PHONY : src/readjson.i
 
 # target to preprocess a source file
-src/test.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/src/test.cpp.i
-.PHONY : src/test.cpp.i
+src/readjson.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/src/readjson.cpp.i
+.PHONY : src/readjson.cpp.i
 
-src/test.s: src/test.cpp.s
-.PHONY : src/test.s
+src/readjson.s: src/readjson.cpp.s
+.PHONY : src/readjson.s
 
 # target to generate assembly for a file
-src/test.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/src/test.cpp.s
-.PHONY : src/test.cpp.s
+src/readjson.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/src/readjson.cpp.s
+.PHONY : src/readjson.cpp.s
 
 # Help Target
 help:
@@ -203,9 +203,9 @@ help:
 	@echo "... src/multimodel_demo.o"
 	@echo "... src/multimodel_demo.i"
 	@echo "... src/multimodel_demo.s"
-	@echo "... src/test.o"
-	@echo "... src/test.i"
-	@echo "... src/test.s"
+	@echo "... src/readjson.o"
+	@echo "... src/readjson.i"
+	@echo "... src/readjson.s"
 .PHONY : help
 
 

@@ -4,6 +4,10 @@
 #include <arrow/api.h>
 #include <arrow/io/api.h>
 #include <parquet/arrow/reader.h>
+
+#include <arrow/result.h>
+#include <parquet/file_reader.h>
+
 #include <fstream>
 #include "rkllm.h"
 
@@ -38,7 +42,7 @@ int main(int argc, char **argv)
     infile = *result;
 
     std::unique_ptr<parquet::arrow::FileReader> parquet_reader;
-    arrow::Status status = parquet::arrow::OpenFile(infile, arrow::default_memory_pool(), &parquet_reader);
+    arrow::Status status = parquet::arrow::FileReader::Open(infile, arrow::default_memory_pool(), &parquet_reader);
     if (!status.ok()) {
         std::cerr << "无法读取 Parquet 文件。" << std::endl;
         return -1;

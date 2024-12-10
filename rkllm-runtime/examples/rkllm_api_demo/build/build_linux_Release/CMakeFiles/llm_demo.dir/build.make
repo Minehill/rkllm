@@ -92,17 +92,6 @@ llm_demo_EXTERNAL_OBJECTS =
 
 llm_demo: CMakeFiles/llm_demo.dir/src/readjson.cpp.o
 llm_demo: CMakeFiles/llm_demo.dir/build.make
-llm_demo: /usr/lib/aarch64-linux-gnu/liblz4.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libzstd.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libre2.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libprotobuf.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libthrift.so
-llm_demo: ../../../../runtime/Linux/librkllm_api/aarch64/librkllmrt.so
-llm_demo: /usr/lib/aarch64-linux-gnu/liblz4.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libzstd.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libre2.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libprotobuf.so
-llm_demo: /usr/lib/aarch64-linux-gnu/libthrift.so
 llm_demo: ../../../../runtime/Linux/librkllm_api/aarch64/librkllmrt.so
 llm_demo: CMakeFiles/llm_demo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable llm_demo"

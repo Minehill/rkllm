@@ -18,3 +18,4 @@ if(CMAKE_SYSTEM_NAME STREQUAL "Linux")
     target_link_libraries(llm_demo  ${RKLLM_RT_LIB})
 
 endif()
+

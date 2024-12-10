@@ -1,0 +1,82 @@
+[
+    {
+        "input": "A revolving door is convenient for two direction travel, but it also serves as a security measure at a what?\nchoice:\nA: bank\nB: library\nC: department store\nD: mall\nE: new york",
+        "target": "A"
+    },
+    {
+        "input": "What do people aim to do at work?\nchoice:\nA: complete job\nB: learn from each other\nC: kill animals\nD: wear hats\nE: talk to each other",
+        "target": "A"
+    },
+    {
+        "input": "Where would you find magazines along side many other printed works?\nchoice:\nA: doctor\nB: bookstore\nC: market\nD: train station\nE: mortuary",
+        "target": "B"
+    },
+    {
+        "input": "Where are  you likely to find a hamburger?\nchoice:\nA: fast food restaurant\nB: pizza\nC: ground up dead cows\nD: mouth\nE: cow carcus",
+        "target": "A"
+    },
+    {
+        "input": "James was looking for a good place to buy farmland.  Where might he look?\nchoice:\nA: midwest\nB: countryside\nC: estate\nD: farming areas\nE: illinois",
+        "target": "A"
+    },
+    {
+        "input": "What island country is ferret popular?\nchoice:\nA: own home\nB: north carolina\nC: great britain\nD: hutch\nE: outdoors",
+        "target": "C"
+    },
+    {
+        "input": "In what Spanish speaking North American country can you get a great cup of coffee?\nchoice:\nA: mildred's coffee shop\nB: mexico\nC: diner\nD: kitchen\nE: canteen",
+        "target": "B"
+    },
+    {
+        "input": "What do animals do when an enemy is approaching?\nchoice:\nA: feel pleasure\nB: procreate\nC: pass water\nD: listen to each other\nE: sing",
+        "target": "D"
+    },
+    {
+        "input": "Reading newspaper one of many ways to practice your what?\nchoice:\nA: literacy\nB: knowing how to read\nC: money\nD: buying\nE: money bank",
+        "target": "A"
+    },
+    {
+        "input": "What do people typically do while playing guitar?\nchoice:\nA: cry\nB: hear sounds\nC: singing\nD: arthritis\nE: making music",
+        "target": "C"
+    },
+    {
+        "input": "What would vinyl be an odd thing to replace?\nchoice:\nA: pants\nB: record albums\nC: record store\nD: cheese\nE: wallpaper",
+        "target": "E"
+    },
+    {
+        "input": "If you want harmony, what is something you should try to do with the world?\nchoice:\nA: take time\nB: make noise\nC: make war\nD: make peace\nE: make haste",
+        "target": "D"
+    },
+    {
+        "input": "Where does a heifer's master live?\nchoice:\nA: farm house\nB: barnyard\nC: stockyard\nD: slaughter house\nE: eat cake",
+        "target": "A"
+    },
+    {
+        "input": "Aside from water and nourishment what does your dog need?\nchoice:\nA: bone\nB: charm\nC: petted\nD: lots of attention\nE: walked",
+        "target": "D"
+    },
+    {
+        "input": "Janet was watching the film because she liked what?\nchoice:\nA: erection\nB: laughter\nC: being entertained\nD: fear\nE: bordem",
+        "target": "C"
+    },
+    {
+        "input": "What are you waiting alongside with when you're in a reception area?\nchoice:\nA: motel\nB: chair\nC: hospital\nD: people\nE: hotels",
+        "target": "D"
+    },
+    {
+        "input": "When drinking booze what can you do to stay busy?\nchoice:\nA: reach tentative agreement\nB: stay in bed\nC: stop bicycle\nD: examine thing\nE: suicide",
+        "target": "D"
+    },
+    {
+        "input": "A fencing thrust with a sharp sword towards a person would result in what?\nchoice:\nA: injury\nB: small cuts\nC: fever\nD: competition\nE: puncture wound",
+        "target": "E"
+    },
+    {
+        "input": "Unlike a spider and his many sight seers, people only have what?\nchoice:\nA: tongues\nB: names\nC: brains\nD: feelings\nE: two eyes",
+        "target": "E"
+    },
+    {
+        "input": "Where do adults use glue sticks?\nchoice:\nA: classroom\nB: desk drawer\nC: at school\nD: office\nE: kitchen drawer",
+        "target": "D"
+    }
+]

@@ -129,43 +129,6 @@ llm_demo/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/build
 .PHONY : llm_demo/fast
 
-#=============================================================================
-# Target rules for targets named multimodel_demo
-
-# Build rule for target.
-multimodel_demo: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 multimodel_demo
-.PHONY : multimodel_demo
-
-# fast build rule for target.
-multimodel_demo/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/build
-.PHONY : multimodel_demo/fast
-
-src/multimodel_demo.o: src/multimodel_demo.cpp.o
-.PHONY : src/multimodel_demo.o
-
-# target to build an object file
-src/multimodel_demo.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/src/multimodel_demo.cpp.o
-.PHONY : src/multimodel_demo.cpp.o
-
-src/multimodel_demo.i: src/multimodel_demo.cpp.i
-.PHONY : src/multimodel_demo.i
-
-# target to preprocess a source file
-src/multimodel_demo.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/src/multimodel_demo.cpp.i
-.PHONY : src/multimodel_demo.cpp.i
-
-src/multimodel_demo.s: src/multimodel_demo.cpp.s
-.PHONY : src/multimodel_demo.s
-
-# target to generate assembly for a file
-src/multimodel_demo.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/src/multimodel_demo.cpp.s
-.PHONY : src/multimodel_demo.cpp.s
-
 src/readjson.o: src/readjson.cpp.o
 .PHONY : src/readjson.o
 
@@ -199,10 +162,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... llm_demo"
-	@echo "... multimodel_demo"
-	@echo "... src/multimodel_demo.o"
-	@echo "... src/multimodel_demo.i"
-	@echo "... src/multimodel_demo.s"
 	@echo "... src/readjson.o"
 	@echo "... src/readjson.i"
 	@echo "... src/readjson.s"

@@ -64,7 +64,6 @@ CMAKE_BINARY_DIR = /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/ex
 
 # The main recursive "all" target.
 all: CMakeFiles/llm_demo.dir/all
-all: CMakeFiles/multimodel_demo.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -73,7 +72,6 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/llm_demo.dir/clean
-clean: CMakeFiles/multimodel_demo.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -101,32 +99,6 @@ llm_demo: CMakeFiles/llm_demo.dir/rule
 CMakeFiles/llm_demo.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/llm_demo.dir/build.make CMakeFiles/llm_demo.dir/clean
 .PHONY : CMakeFiles/llm_demo.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/multimodel_demo.dir
-
-# All Build rule for target.
-CMakeFiles/multimodel_demo.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles --progress-num=3,4 "Built target multimodel_demo"
-.PHONY : CMakeFiles/multimodel_demo.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/multimodel_demo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/multimodel_demo.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/build/build_linux_Release/CMakeFiles 0
-.PHONY : CMakeFiles/multimodel_demo.dir/rule
-
-# Convenience name for target.
-multimodel_demo: CMakeFiles/multimodel_demo.dir/rule
-.PHONY : multimodel_demo
-
-# clean rule for target.
-CMakeFiles/multimodel_demo.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/multimodel_demo.dir/build.make CMakeFiles/multimodel_demo.dir/clean
-.PHONY : CMakeFiles/multimodel_demo.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

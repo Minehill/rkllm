@@ -1,78 +1,3 @@
-// #include <iostream>
-// #include <fstream>
-// #include <string>
-// #include <vector>
-// #include <nlohmann/json.hpp> // 需要安装 nlohmann/json 库
-
-// using json = nlohmann::json;
-
-
-// int main() {
-//     std::ifstream infile("/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/train_rand_split.jsonl");
-//     if (!infile.is_open()) {
-//         std::cerr << "无法打开文件" << std::endl;
-//         return 1;
-//     }
-
-//     std::vector<std::string> questions;
-//     std::vector<std::string> question_concepts;
-//     std::vector<std::vector<std::string>> choices;
-//     std::vector<std::string> answers;
-
-//     std::string line;
-//     while (std::getline(infile, line)) {
-//         json j = json::parse(line);
-//         questions.push_back(j["question"]["stem"]);
-//         question_concepts.push_back(j["question"]["question_concept"]);
-        
-//         std::vector<std::string> choice_texts;
-//         for (const auto& choice : j["question"]["choices"]) {
-//             choice_texts.push_back(choice["text"]);
-//         }
-//         choices.push_back(choice_texts);
-        
-//         answers.push_back(j["answerKey"]);
-//     }
-
-//     infile.close();
-
-//     输出结果以验证
-//     for (size_t i = 0; i < questions.size(); ++i) {
-//         std::cout << "问题: " << questions[i] << std::endl;
-//         std::cout << "问题类别: " << question_concepts[i] << std::endl;
-//         std::cout << "选项: ";
-//         for (const auto& choice : choices[i]) {
-//             std::cout << choice << " ";
-//         }
-//         std::cout << std::endl;
-//         std::cout << "答案: " << answers[i] << std::endl;
-//         std::cout << "------------------------" << std::endl;
-//     }
-
-
-
-//     return 0;
-// }
-
-
-
-
-
-
-// Copyright (c) 2024 by Rockchip Electronics Co., Ltd. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 #include <string.h>
 #include <unistd.h>
 #include <string>
@@ -93,60 +18,38 @@ LLMHandle llmHandle = nullptr;
 
 
 std::vector<std::string> questions;
-// std::vector<std::string> question_concepts;
-// std::vector<std::vector<std::string>> choices;
+std::vector<std::string> question_concepts;
+std::vector<std::vector<std::string>> choices;
 std::vector<std::string> answers;
 int correct_predictions = 0;
 int total_predictions = 0;
 
 // 读取json文件
 void read_data () {
-    std::ifstream infile("/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/script/val_main.jsonl");
+    std::ifstream infile("/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/cy.jsonl");
     if (!infile.is_open()) {
         std::cerr << "无法打开文件" << std::endl;
         return;
     }
-
-    // std::vector<std::string> questions;
-    // std::vector<std::string> question_concepts;
-    // std::vector<std::vector<std::string>> choices;
-    // std::vector<std::string> answers;
-
     std::string line;
     while (std::getline(infile, line)) {
         json j = json::parse(line);
-        questions.push_back(j["question"]);
-        // question_concepts.push_back(j["question"]["question_concept"]);
-        
-        // std::vector<std::string> choice_texts;
-        // for (const auto& choice : j["question"]["choices"]) {
-        //     // choice_texts.push_back(choice["text"]);
-        //     choice_texts.push_back(choice["label"].get<std::string>() + " : " + choice["text"].get<std::string>());
-        // }
-        // choices.push_back(choice_texts);
-        
-        // 保存answer中###后面那个数字
-        std::string answer = j["answer"].get<std::string>();
-        answers.push_back(answer.substr(answer.find("#### ") + 5));
+        questions.push_back(j["question"]["stem"]);
+        question_concepts.push_back(j["question"]["question_concept"]);
+
+        std::vector<std::string> choice_texts;
+        for (const auto& choice : j["question"]["choices"]) {
+            // choice_texts.push_back(choice["text"]);
+            choice_texts.push_back(choice["label"].get<std::string>() + " : " + choice["text"].get<std::string>());
+        }
+        choices.push_back(choice_texts);
+
+        answers.push_back(j["answerKey"]);
     }
 
     infile.close();
 
-    // 输出结果以验证
-    for (size_t i = 0; i < questions.size(); ++i) {
-        std::cout << "问题: " << questions[i] << std::endl;
-        // std::cout << "问题类别: " << question_concepts[i] << std::endl;
-        // std::cout << "选项: ";
-        // for (const auto& choice : choices[i]) {
-            // std::cout << choice << " ";
-        // }
-        // std::cout << std::endl;
-        std::cout << "答案: " << answers[i] << std::endl;
-        std::cout << "------------------------" << std::endl;
-    }
 }
-
-
 
 
 void exit_handler(int signal)
@@ -189,14 +92,43 @@ void callback(RKLLMResult *result, void *userdata, LLMCallState state)
             }
         }
     } else if (state == RKLLM_RUN_NORMAL) {
+        if (result == NULL || result->text == NULL)
+            return;
+
+        // 输出生成的文本
         printf("%s", result->text);
-        // 将回答与正确答案进行比较
-        std::string answer = result->text;
-        if (answer == answers[total_predictions]) {
-            correct_predictions++;
-            printf("yes");
+
+        // 定义可能的选项字母
+        const char options[] = {'A', 'B', 'C', 'D', 'E'};
+
+        // 初始化标志，记录是否找到选项
+        bool option_found = false;
+        char predicted_answer = '\0';
+
+        // 在 result->text 中查找选项字母
+        for (char option : options) {
+            if (strchr(result->text, option) != NULL) {
+                predicted_answer = option;
+                option_found = true;
+                break;
+            }
         }
-        total_predictions++;
+
+        // 如果找到选项，进行比较
+        if (option_found) {
+            // 检查 total_predictions 是否在有效范围内
+            if (total_predictions < answers.size()) {
+                // 获取正确答案的第一个字符
+                char correct_answer = answers[total_predictions][0];
+
+                // 比较预测答案与正确答案（忽略大小写）
+                if (tolower(predicted_answer) == tolower(correct_answer)) {
+                    correct_predictions++;
+                    printf("yes");
+                }
+                total_predictions++;
+            }
+        }
     }
 }
 
@@ -209,7 +141,7 @@ int main(int argc, char **argv)
 
     signal(SIGINT, exit_handler);
     printf("rkllm init start\n");
-    
+
     // 读取json文件
     read_data();
 
@@ -246,20 +178,21 @@ int main(int argc, char **argv)
     memset(&rkllm_infer_params, 0, sizeof(RKLLMInferParam));  // 将所有内容初始化为 0
 
     rkllm_infer_params.mode = RKLLM_INFER_GENERATE;
-    
-    printf("size : %d \n", questions.size());
+
+    printf("size : %d", questions.size());
 
     for (size_t i = 0; i < questions.size(); ++i)
     {
         text = questions[i] + "\n";
-        // for (size_t k = 0; k < choices[i].size(); ++k) {
-        //     text += choices[i][k] + "\n";
-        // }
-        text += "最终答案以: #### 后面的数字 为准\n";
-        
+        for (size_t k = 0; k < choices[i].size(); ++k) {
+            text += choices[i][k] + "\n";
+        }
+        text += "答案是(仅最正确一个字母):";
+
         // text = PROMPT_TEXT_PREFIX + text + PROMPT_TEXT_POSTFIX;
-        // std::cout <<  text << std::endl;
-        // text = "Only answer the final answer, don't parse!!::" + text;
+        std::cout <<  text << std::endl;
+
+        
         rkllm_input.input_type = RKLLM_INPUT_PROMPT;
         rkllm_input.prompt_input = (char *)text.c_str();
         // printf("robot: ");

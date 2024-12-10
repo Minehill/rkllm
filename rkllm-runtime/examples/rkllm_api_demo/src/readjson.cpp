@@ -93,15 +93,15 @@ LLMHandle llmHandle = nullptr;
 
 
 std::vector<std::string> questions;
-std::vector<std::string> question_concepts;
-std::vector<std::vector<std::string>> choices;
+// std::vector<std::string> question_concepts;
+// std::vector<std::vector<std::string>> choices;
 std::vector<std::string> answers;
 int correct_predictions = 0;
 int total_predictions = 0;
 
 // 读取json文件
 void read_data () {
-    std::ifstream infile("/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/src/train_rand_split.jsonl");
+    std::ifstream infile("/userdata/repos/datasets/rkllm_code/rknn-llm/rkllm-runtime/examples/rkllm_api_demo/script/val_main.jsonl");
     if (!infile.is_open()) {
         std::cerr << "无法打开文件" << std::endl;
         return;
@@ -115,34 +115,38 @@ void read_data () {
     std::string line;
     while (std::getline(infile, line)) {
         json j = json::parse(line);
-        questions.push_back(j["question"]["stem"]);
-        question_concepts.push_back(j["question"]["question_concept"]);
+        questions.push_back(j["question"]);
+        // question_concepts.push_back(j["question"]["question_concept"]);
         
-        std::vector<std::string> choice_texts;
-        for (const auto& choice : j["question"]["choices"]) {
-            // choice_texts.push_back(choice["text"]);
-            choice_texts.push_back(choice["label"].get<std::string>() + " : " + choice["text"].get<std::string>());
-        }
-        choices.push_back(choice_texts);
+        // std::vector<std::string> choice_texts;
+        // for (const auto& choice : j["question"]["choices"]) {
+        //     // choice_texts.push_back(choice["text"]);
+        //     choice_texts.push_back(choice["label"].get<std::string>() + " : " + choice["text"].get<std::string>());
+        // }
+        // choices.push_back(choice_texts);
         
-        answers.push_back(j["answerKey"]);
+        // 保存answer中###后面那个数字
+        std::string answer = j["answer"].get<std::string>();
+        answers.push_back(answer.substr(answer.find("#### ") + 5));
     }
 
     infile.close();
 
     // 输出结果以验证
-    // for (size_t i = 0; i < questions.size(); ++i) {
-    //     std::cout << "问题: " << questions[i] << std::endl;
-    //     std::cout << "问题类别: " << question_concepts[i] << std::endl;
-    //     std::cout << "选项: ";
-    //     for (const auto& choice : choices[i]) {
-    //         std::cout << choice << " ";
-    //     }
-    //     std::cout << std::endl;
-    //     std::cout << "答案: " << answers[i] << std::endl;
-    //     std::cout << "------------------------" << std::endl;
-    // }
+    for (size_t i = 0; i < questions.size(); ++i) {
+        std::cout << "问题: " << questions[i] << std::endl;
+        // std::cout << "问题类别: " << question_concepts[i] << std::endl;
+        // std::cout << "选项: ";
+        // for (const auto& choice : choices[i]) {
+            // std::cout << choice << " ";
+        // }
+        // std::cout << std::endl;
+        std::cout << "答案: " << answers[i] << std::endl;
+        std::cout << "------------------------" << std::endl;
+    }
 }
+
+
 
 
 void exit_handler(int signal)
@@ -186,8 +190,9 @@ void callback(RKLLMResult *result, void *userdata, LLMCallState state)
         }
     } else if (state == RKLLM_RUN_NORMAL) {
         printf("%s", result->text);
-        // 将第一个字母与答案进行比较（忽略大小写差异），计数正确与错误的情况
-        if (result->text[1] == answers[total_predictions][0] || result->text[1] == answers[total_predictions][0] + 32) {
+        // 将回答与正确答案进行比较
+        std::string answer = result->text;
+        if (answer == answers[total_predictions]) {
             correct_predictions++;
             printf("yes");
         }
@@ -242,19 +247,19 @@ int main(int argc, char **argv)
 
     rkllm_infer_params.mode = RKLLM_INFER_GENERATE;
     
-    printf("size : %d", questions.size());
+    printf("size : %d \n", questions.size());
 
     for (size_t i = 0; i < questions.size(); ++i)
     {
         text = questions[i] + "\n";
-        for (size_t k = 0; k < choices[i].size(); ++k) {
-            text += choices[i][k] + "\n";
-        }
-        text += "答案是(仅字母):";
+        // for (size_t k = 0; k < choices[i].size(); ++k) {
+        //     text += choices[i][k] + "\n";
+        // }
+        text += "最终答案以: #### 后面的数字 为准\n";
         
         // text = PROMPT_TEXT_PREFIX + text + PROMPT_TEXT_POSTFIX;
         // std::cout <<  text << std::endl;
-
+        // text = "Only answer the final answer, don't parse!!::" + text;
         rkllm_input.input_type = RKLLM_INPUT_PROMPT;
         rkllm_input.prompt_input = (char *)text.c_str();
         // printf("robot: ");
